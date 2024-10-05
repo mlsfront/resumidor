@@ -6,7 +6,7 @@
     <title>Resumidor de Texto</title>
 </head>
 <body>
-    <h1>Resumidor de Texto com TF-IDF e Embeddings</h1>
+    <h1>Resumidor de Texto com TF-IDF e spaCy</h1>
     <form method="POST">
         <textarea name="texto" rows="10" cols="50" placeholder="Digite seu texto aqui..."></textarea><br>
         <input type="submit" value="Resumir">
@@ -17,9 +17,9 @@
         <p>{{ resumo_tfidf }}</p>
     {% endif %}
     
-    {% if resumo_embeddings %}
-        <h2>Resumo com Embeddings:</h2>
-        <p>{{ resumo_embeddings }}</p>
+    {% if resumo_spacy %}
+        <h2>Resumo com spaCy:</h2>
+        <p>{{ resumo_spacy }}</p>
     {% endif %}
 </body>
 </html>
