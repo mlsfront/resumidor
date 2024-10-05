@@ -12,9 +12,11 @@ Este projeto é um aplicativo web simples que resume textos utilizando duas abor
     └── index.html
 ```
 
-- `app.py`: O arquivo principal do aplicativo que contém a lógica do Flask.
-- `requirements.txt`: Lista de dependências necessárias para o projeto.
-- `templates/index.html`: O arquivo HTML que serve como interface do usuário.
+### Arquivos
+
+- **app.py**: O código principal do aplicativo Flask.
+- **templates/index.html**: O template HTML que renderiza a interface do usuário.
+- **requirements.txt**: As dependências necessárias para o projeto.
 
 ## Instalação
 
@@ -82,16 +84,48 @@ O aplicativo será executado em `http://127.0.0.1:5000/` por padrão.
 
 ## Uso
 
-1. Abra seu navegador e acesse `http://127.0.0.1:5000/`.
-2. Digite ou cole o texto que você deseja resumir na caixa de texto.
-3. Clique no botão "Resumir".
-4. O resumo gerado por ambas as abordagens (TF-IDF e spaCy) será exibido abaixo do formulário.
+1. **Instalação das Dependências**:
+   - Crie um ambiente virtual usando `Anaconda` ou `venv`.
+   - Instale as dependências:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+2. **Rodar o Aplicativo**:
+   ```bash
+   python app.py
+   ```
+   O aplicativo estará disponível em `http://127.0.0.1:5000/`.
+
+3. **Interface do Usuário**:
+   - Insira o texto que deseja resumir no campo de texto.
+   - Escolha entre "Resumir" ou "Resumir Avançado".
+   - Os resumos aparecerão abaixo do campo de texto, formatados com quebras de linha.
+   - Você pode copiar cada resumo usando o botão correspondente.
 
 ## Funcionalidade
 
 - **Resumir com TF-IDF:** O aplicativo usa a técnica TF-IDF para identificar as sentenças mais relevantes do texto. Ele retorna as três sentenças com a maior soma dos valores TF-IDF.
   
 - **Resumir com spaCy:** O aplicativo utiliza a biblioteca spaCy para processar o texto e retorna as três sentenças mais longas, considerando a contagem de palavras.
+
+- **Resumo Avançado**: Uma opção de resumo que utiliza pré-processamento e remoção de stop words.
+
+- **Interface Interativa**: O usuário pode inserir um texto, escolher um método de resumo e visualizar os resultados formatados.
+
+## Alterações e Melhorias Implementadas
+
+- **Remoção de Stop Words**: Agora, o aplicativo remove stop words para melhorar a qualidade dos resumos.
+- **Formatação de Resumos**: Resumos agora são formatados para incluir quebras de linha e pontuação adequada.
+- **Caractere Especial para Quebras de Linha**: Um caractere especial é utilizado para formatar as sentenças de maneira mais eficaz.
+- **Preservação do Texto**: O texto inserido no `textarea` é mantido após a submissão do formulário.
+- **Botões de Ação**: Incluídos botões para "Limpar" o texto, atualizar a página e copiar resumos específicos.
+
+## Dependências
+
+- Flask
+- scikit-learn
+- spaCy (instalar o modelo em português: `python -m spacy download pt_core_news_sm`)
 
 ## Contribuição
 

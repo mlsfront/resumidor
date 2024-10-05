@@ -5,21 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resumidor de Texto</title>
 </head>
+<script>
+    function validarFormulario(event) {
+        const texto = document.getElementsByName('texto')[0].value;
+        if (!texto.trim()) {
+            alert('Por favor, insira um texto antes de resumir.');
+            event.preventDefault();  // Impede o envio do formulário
+        }
+    }
+    
+    function copyToClipboard(resumo, tipo) {
+        navigator.clipboard.writeText(resumo).then(function() {
+            alert(`${tipo} copiado para a área de transferência!`);
+        }, function(err) {
+            console.error('Erro ao copiar texto: ', err);
+        });
+    }
+</script>
+  
+
 <body>
     <h1>Resumidor de Texto com TF-IDF e spaCy</h1>
-    <form method="POST">
-        <textarea name="texto" rows="10" cols="50" placeholder="Digite seu texto aqui..."></textarea><br>
-        <input type="submit" value="Resumir">
+    <form method="POST" onsubmit="validarFormulario(event)">
+        <textarea name="texto" rows="10" cols="50" placeholder="Digite seu texto aqui..." required>{{ texto }}</textarea><br>
+        <input type="submit" name="resumir" value="Resumir">
+        <input type="submit" name="resumir_avancado" value="Resumir Avançado">
+        <input type="button" value="Limpar" onclick="document.getElementsByName('texto')[0].value='';">
+        <input type="button" value="Atualizar Página" onclick="location.reload();">
     </form>
     
     {% if resumo_tfidf %}
-        <h2>Resumo com TF-IDF:</h2>
-        <p>{{ resumo_tfidf }}</p>
-    {% endif %}
-    
+    <h2>Resumo com TF-IDF:</h2>
+    <p>{{ resumo_tfidf|safe }} <button onclick="copyToClipboard(`{{ resumo_tfidf }}`, 'Resumo TF-IDF')">Copiar</button></p>    {% endif %}
+
     {% if resumo_spacy %}
         <h2>Resumo com spaCy:</h2>
-        <p>{{ resumo_spacy }}</p>
+        <p>{{ resumo_spacy|safe }} <button onclick="copyToClipboard(`{{ resumo_spacy }}`, 'Resumo spaCy')">Copiar</button></p>
     {% endif %}
+
+    {% if resumo_avancado %}
+        <h2>Resumo Avançado:</h2>
+        <p>{{ resumo_avancado|safe }} <button onclick="copyToClipboard(`{{ resumo_avancado }}`, 'Resumo Avançado')">Copiar</button></p>
+    {% endif %}
+
+    
 </body>
 </html>
