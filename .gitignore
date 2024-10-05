@@ -1,0 +1,80 @@
+# ignore ALL .log files
+# composer.lock
+commit.md
+*.log
+*.bat
+*.ConfigHospedagem.php
+*.ConfigHost.php
+#*.lock
+*.rar
+*.zip
+*.mp4
+*.sh
+*conexao-hospedagem.php
+*config-hospedagem.php
+
+# ignore ALL files in ANY directory named temp
+node_modules/
+layout_adm/
+utils/
+util/
+testes/
+teste/
+test/
+db/
+vendor/
+logs/
+debug/
+erros/
+bkp/
+
+# export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+
+# icone
+desktop.ini
+
+# Binaries for programs and plugins
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+# diskcache directory 
+cache/*
+tmp/
+
+.env
+*.pid
+bin/
+
+bkp-*.php
+*-bkp.php
+teste-*.php
+*-teste.php
+bkp-*.md
+*-bkp.md
+teste-*.md
+*-teste.md
+bkp-*.html
+*-bkp.html
+teste-*.html
+*-teste.html
+bkp-*.css
+*-bkp.css
+teste-*.css
+*-teste.css
+bkp-*.js
+*-bkp.js
+teste-*.js
+*-teste.js
+bkp-*.py
+*-bkp.py
+teste-*.py
+*-teste.py

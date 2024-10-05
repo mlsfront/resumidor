@@ -1,0 +1,110 @@
+# Resumidor de Texto com TF-IDF e spaCy
+
+Este projeto é um aplicativo web simples que resume textos utilizando duas abordagens diferentes: TF-IDF e spaCy. O aplicativo é construído com Flask e permite que o usuário insira um texto e obtenha resumos gerados com essas técnicas.
+
+## Estrutura do Projeto
+
+```
+.
+├── app.py
+├── requirements.txt
+└── templates
+    └── index.html
+```
+
+- `app.py`: O arquivo principal do aplicativo que contém a lógica do Flask.
+- `requirements.txt`: Lista de dependências necessárias para o projeto.
+- `templates/index.html`: O arquivo HTML que serve como interface do usuário.
+
+## Instalação
+
+### Pré-requisitos
+
+Antes de começar, você precisa ter o Python 3 e o pip instalados em seu sistema. Se você preferir usar o Anaconda, você pode instalar o ambiente a partir do Anaconda Navigator ou via linha de comando.
+
+### Opção 1: Usando Anaconda
+
+1. **Criar um ambiente virtual:**
+
+   ```bash
+   conda create --name resumidor python=3.8
+   conda activate resumidor
+   ```
+
+2. **Instalar as dependências:**
+
+   Execute o seguinte comando para instalar as dependências do projeto:
+
+   ```bash
+   conda install flask scikit-learn
+   ```
+
+3. **Instalar spaCy e o modelo de linguagem:**
+
+   ```bash
+   conda install -c conda-forge spacy
+   python -m spacy download pt_core_news_sm
+   ```
+
+### Opção 2: Usando Python e pip
+
+1. **Criar um ambiente virtual (opcional, mas recomendado):**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # No Windows, use: venv\Scripts\activate
+   ```
+
+2. **Instalar as dependências:**
+
+   Execute o seguinte comando para instalar as dependências do projeto:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Instalar spaCy e o modelo de linguagem:**
+
+   ```bash
+   pip install spacy
+   python -m spacy download pt_core_news_sm
+   ```
+
+## Execução do Aplicativo
+
+Depois de instalar as dependências, você pode iniciar o aplicativo com o seguinte comando:
+
+```bash
+python app.py
+```
+
+O aplicativo será executado em `http://127.0.0.1:5000/` por padrão.
+
+## Uso
+
+1. Abra seu navegador e acesse `http://127.0.0.1:5000/`.
+2. Digite ou cole o texto que você deseja resumir na caixa de texto.
+3. Clique no botão "Resumir".
+4. O resumo gerado por ambas as abordagens (TF-IDF e spaCy) será exibido abaixo do formulário.
+
+## Funcionalidade
+
+- **Resumir com TF-IDF:** O aplicativo usa a técnica TF-IDF para identificar as sentenças mais relevantes do texto. Ele retorna as três sentenças com a maior soma dos valores TF-IDF.
+  
+- **Resumir com spaCy:** O aplicativo utiliza a biblioteca spaCy para processar o texto e retorna as três sentenças mais longas, considerando a contagem de palavras.
+
+## Contribuição
+
+Sinta-se à vontade para contribuir com o projeto. Você pode abrir issues ou pull requests no repositório.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE). 
+
+## Contato
+
+Para dúvidas ou sugestões, entre em contato pelo e-mail [contato@mlsfront.com].
+
+---
+
+Aproveite o Resumidor de Texto!
