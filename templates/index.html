@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumidor de Texto</title>
+</head>
+<body>
+    <h1>Resumidor de Texto com TF-IDF e Embeddings</h1>
+    <form method="POST">
+        <textarea name="texto" rows="10" cols="50" placeholder="Digite seu texto aqui..."></textarea><br>
+        <input type="submit" value="Resumir">
+    </form>
+    
+    {% if resumo_tfidf %}
+        <h2>Resumo com TF-IDF:</h2>
+        <p>{{ resumo_tfidf }}</p>
+    {% endif %}
+    
+    {% if resumo_embeddings %}
+        <h2>Resumo com Embeddings:</h2>
+        <p>{{ resumo_embeddings }}</p>
+    {% endif %}
+</body>
+</html>
